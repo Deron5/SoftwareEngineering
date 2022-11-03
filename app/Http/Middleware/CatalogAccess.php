@@ -17,7 +17,7 @@ class CatalogAccess
     public function handle(Request $request, Closure $next, $role)
     {
         if (empty($request->user()) || !$request->user()->hasRole($role)) {
-            return redirect('login')->with('errmessage', "You do not have access to this page");
+            return redirect('login')->with('err', "You do not have access to this page.");
         }
         return $next($request);
     }

@@ -14,7 +14,7 @@ use App\Http\Controllers\Catalog\CatalogController;
 |
 */
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => 'auth'], function () {});
     Route::post('catalog', 'CatalogController@search');
 
 

@@ -1,8 +1,21 @@
+<head>
+    <style>
+        #err{
+            background-color: #fee6a5cf;
+            border-radius: 0.5rem;
+            border: solid #dac68f 2px;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+
+
+</head>
+
 
 <div class="panel-1">
 <x-guest-layout>
-
-
     <x-auth-card>
 
         <x-slot name="logo">
@@ -13,7 +26,15 @@
 
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
-    
+        
+        @if (\Session::has('err'))
+            <div id="err">
+                {!! \Session::get('err')!!}
+                <br>
+                Please Login.
+            </div>
+        @endif
+
         <form method="POST" action="{{ route('login') }}">
             @csrf
 
